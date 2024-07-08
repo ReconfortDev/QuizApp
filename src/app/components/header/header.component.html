@@ -1,0 +1,10 @@
+<div class="w-full flex justify-end items-end">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-lightBlue dark:text-white">light_mode</span>
+    <button (click)="toggleDarkMode()" [ngClass]="darkMode ? 'justify-end' : 'justify-start' "
+            class="w-14 p-1 flex justify-start items-center rounded-full bg-primary active:scale-75">
+      <div class="w-6 h-6 rounded-full bg-lightGray shadow-inner shadow-lightBlue"></div>
+    </button>
+    <span class="material-symbols-outlined text-lightBlue dark:text-white">dark_mode</span>
+  </div>
+</div>
