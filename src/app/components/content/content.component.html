@@ -1,0 +1,30 @@
+<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+  <!--  left content will be place here-->
+  <div>
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal text-secondary dark:text-lightGray">Welcome to the <br>
+      <span class="font-black">Frontend Quiz!</span>
+    </h1>
+    <p class="text-xl italic font-light mt-4 md:mt-8 text-secondary dark:text-lightBlue">Pick a subject to get
+      started.</p>
+  </div>
+
+  <!--  right content will be place here-->
+
+  <div class="">
+    <ul class="text-2xl font-semibold flex flex-col gap-6">
+
+      <li *ngFor="let quiz of allQuizzes let id = index"
+          (click)="ChooseQuiz(id)"
+          class="p-5 rounded-xl bg-white dark:bg-secondary w-full flex items-center gap-6">
+        <span class="w-12 h-12 rounded-lg bg-[#FFF1E9] flex items-center justify-center">
+          <img [ngSrc]="quiz.icon" height="30" width="30" [alt]="quiz.title"/>
+        </span>
+        <p class="text-secondary dark:text-lightGray">{{ quiz.title }}</p>
+      </li>
+
+    </ul>
+  </div>
+
+</div>
+
