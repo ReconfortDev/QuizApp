@@ -1,0 +1,34 @@
+<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+  <!--  left content will be place here-->
+  <div>
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal text-secondary dark:text-lightGray">Welcome to the <br>
+      <span class="font-black">Quiz Completed</span>
+    </h1>
+    <p class="text-xl italic font-light mt-4 md:mt-8 text-secondary dark:text-lightBlue">You scored...</p>
+  </div>
+
+  <!--  right content will be place here-->
+
+  <div class="h-[50vh] w-full bg-white dark:bg-secondary">
+    <div class="flex gap-4 items-center font-black text-xl">
+      <div class="bg-[#F6E7FF] p-3 flex items-center justify-center rounded-lg">
+      <span class="material-symbols-outlined text-primary">
+        accessibility_new
+      </span>
+      </div>
+      <span class="text-secondary dark:text-lightGray">
+      Accessibility
+    </span>
+    </div>
+    <h1 class="text-7xl">80</h1>
+    <p>Out of 10</p>
+  </div>
+
+  <button (click)="playAgain()"
+          class="p-5 rounded-xl bg-primary w-full text-center gap-6 text-white">
+    Play again
+  </button>
+
+
+</div>

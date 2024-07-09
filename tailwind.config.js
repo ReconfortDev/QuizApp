@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      transparent: 'transparent',
       primary: '#A729F5', // RGB: 167, 41, 245; HSL: 277°, 91%, 56%
       secondary: '#3B4D66', // RGB: 59, 77, 102; HSL: 215°, 27%, 32%
       accent: '#313E51', // RGB: 49, 62, 81; HSL: 216°, 25%, 25%

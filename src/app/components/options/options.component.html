@@ -1,28 +1,58 @@
 <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
-
-  <!--  left content will be place here-->
-  <div>
-    <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal text-secondary dark:text-lightGray">Welcome to the <br>
-      <span class="font-black">Frontend Quiz!</span>
-    </h1>
-    <p class="text-xl italic font-light mt-4 md:mt-8 text-secondary dark:text-lightBlue">Pick a subject to get
-      started.</p>
+  <!-- Left content -->
+  <div class="h-full flex flex-col justify-between gap-4 md:gap-8 lg:gap-12">
+    <div class="flex flex-col gap-4 md:gap-8 lg:gap-12 w-[90%]">
+      <p class="text-secondary dark:text-lightBlue text-lg font-medium">
+        Question {{ quizzes.getCurrentStep()() + 1 }} of {{ currentQuiz.questions.length }}
+      </p>
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary dark:text-lightGray">
+        {{ currentQuestion.question }}
+      </h1>
+    </div>
+    <div class="w-[90%] bg-white dark:bg-secondary rounded-full p-1">
+      <div class="bg-primary rounded-full h-2 w-[10%]" [style.width]="ProgressBarTracker() + '%'"></div>
+    </div>
   </div>
 
-  <!--  right content will be place here-->
-
-  <div class="">
+  <!-- Right content -->
+  <div>
     <ul class="text-2xl font-semibold flex flex-col gap-6">
-
-      <li class="p-5 rounded-xl bg-white dark:bg-secondary w-full flex items-center gap-6">
-        <span class="w-12 h-12 rounded-lg bg-[#FFF1E9] flex items-center justify-center">
-         1
-        </span>
-        <p class="text-secondary dark:text-lightGray"> Lorem ipsum</p>
+      <li *ngFor="let option of currentQuestion.options; let id = index"
+          (click)="getAnswerId(id)"
+          [class.selected]="selectedOption() === id"
+          [ngClass]="{
+          'border-transparent': !answerSubmitted,
+          'border-[#FFA500]': answerSubmitted && selectedOption() === id && selectedOption() !== correctAnswer,
+          'border-[#26D782]': answerSubmitted && selectedOption() === id && selectedOption() === correctAnswer
+        }"
+          class="p-5 rounded-xl bg-white dark:bg-secondary w-full flex items-center gap-6 group border-2 border-transparent cursor-pointer hover:scale-[1.01] active:scale-[0.95]">
+      <span
+        [ngClass]="{
+          'bg-[#26D782] group-hover:bg-[#26D782] hover:bg-[#26D782] hover:text-secondary text-white': answerSubmitted && selectedOption() === id && selectedOption() === correctAnswer,
+          'bg-lightGray ': !answerSubmitted || (answerSubmitted && selectedOption() !== id)
+        }"
+        class="w-12 h-12 bg-lightGray rounded-lg text-secondary flex items-center justify-center group-hover:bg-[#F6E7FF]">
+        {{ ['A', 'B', 'C', 'D'][id] }}
+      </span>
+        <p class="text-secondary text-xl dark:text-lightGray">{{ option }}</p>
       </li>
 
+      <button *ngIf="!answerSubmitted" (click)="answering()"
+              class="p-5 rounded-xl bg-primary w-full text-center gap-6 text-white">
+        Submit Answer
+      </button>
+
+      <button *ngIf="answerSubmitted" (click)="nextQuestion()"
+              class="p-5 rounded-xl bg-primary w-full text-center gap-6 text-white"
+              [disabled]="!submittedOption">
+        Next Question
+      </button>
+
+      <div *ngIf="errorMsg()" class="text-red w-full flex gap-2 items-center justify-center text-lg p-2">
+        <span class="material-symbols-outlined">cancel</span>
+        <p>Please select an answer!</p>
+      </div>
     </ul>
   </div>
 
 </div>
-

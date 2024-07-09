@@ -17,3 +17,9 @@ export type Quiz = {
     answer: string;
   }[];
 }
+
+export type Question= {
+  question: string;
+  options: string[];
+  answer: string;
+};

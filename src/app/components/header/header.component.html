@@ -1,15 +1,17 @@
 <div class="w-full flex justify-between items-center">
-  <div class="flex gap-4 items-center font-black text-xl">
-    <div class="bg-[#F6E7FF] p-3 flex items-center justify-center rounded-lg">
+  @if (Object.keys(quizzes.getCurrentQuiz()()).length) {
+    <div class="flex gap-4 items-center font-black text-xl">
+      <div class="bg-[#F6E7FF] p-3 flex items-center justify-center rounded-lg">
       <span class="material-symbols-outlined text-primary">
         accessibility_new
       </span>
-    </div>
-    <span class="text-secondary dark:text-lightGray">
+      </div>
+      <span class="text-secondary dark:text-lightGray">
       Accessibility
     </span>
-  </div>
-  <div class="flex items-center gap-3">
+    </div>
+  }
+  <div class="flex items-center gap-3 ml-auto">
     <span class="material-symbols-outlined text-lightBlue dark:text-white">light_mode</span>
     <button (click)="toggleDarkMode()" [ngClass]="darkMode ? 'justify-end' : 'justify-start' "
             class="w-14 p-1 flex justify-start items-center rounded-full bg-primary active:scale-75">

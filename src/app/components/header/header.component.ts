@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {NgClass} from "@angular/common";
+import {QuizService} from "../../service/quiz.service";
 
 @Component({
   selector: 'app-header',
@@ -41,4 +42,8 @@ export class HeaderComponent implements OnInit {
       document.documentElement.classList.remove('dark');
     }
   }
+
+  quizzes = inject(QuizService);
+  protected readonly Object = Object;
+
 }

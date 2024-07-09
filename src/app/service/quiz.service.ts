@@ -10,7 +10,11 @@ export class QuizService {
   quizzes: Quizzes = data.quizzes
   currentQuiz = signal({} as Quiz);
 
-  getCurrentQuiz(): Quizzes {
+  correctAnswers:number = 0
+  correctAnswer:number = 0;
+  currentStep = signal(0);
+
+  getAllQuiz(): Quizzes {
     return this.quizzes;
   }
 
@@ -18,7 +22,25 @@ export class QuizService {
     this.currentQuiz.set(this.quizzes[index]);
   }
 
-  getCurrentQuizInstance(): WritableSignal<Quiz> {
+  getCurrentQuiz(): WritableSignal<Quiz> {
+    // console.log(this.currentQuiz())
     return this.currentQuiz;
   }
+
+  setCurrentStep(step: number): void {
+    this.currentStep.set(step);
+  }
+
+  getCurrentStep(): WritableSignal<number> {
+    return this.currentStep;
+  }
+
+  incrementStep(): void {
+    this.currentStep.set(this.currentStep() + 1);
+  }
+
+  getScore(): number {
+    return this.correctAnswers;
+  }
+
 }

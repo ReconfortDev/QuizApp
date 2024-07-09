@@ -1,7 +1,8 @@
 import {Component, inject} from '@angular/core';
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {QuizService} from "../../service/quiz.service";
 import {OptionsComponent} from "../options/options.component";
+import {ScoresComponent} from "../scores/scores.component";
 
 @Component({
   selector: 'app-content',
@@ -9,7 +10,9 @@ import {OptionsComponent} from "../options/options.component";
   imports: [
     NgOptimizedImage,
     NgForOf,
-    OptionsComponent
+    OptionsComponent,
+    NgIf,
+    ScoresComponent
   ],
   templateUrl: './content.component.html',
   styles: ``
@@ -17,10 +20,12 @@ import {OptionsComponent} from "../options/options.component";
 export class ContentComponent {
   quizzes = inject(QuizService);
 
-  allQuizzes = this.quizzes.getCurrentQuiz()
+  allQuizzes = this.quizzes.getAllQuiz()
+
 
   ChooseQuiz(index: number): void {
     this.quizzes.setCurrentQuiz(index);
   }
 
+  protected readonly Object = Object;
 }
