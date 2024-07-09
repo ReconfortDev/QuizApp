@@ -4,7 +4,7 @@ Welcome to the Frontend Quiz Application! This is a web application built with A
 
 ## Live Demo
 
-Check out the live version of the project here: [Amali Quiz App](https://amaliquiz.netlify.app/quiz)
+Check out the live version of the project here: [Amali Quiz App](https://amaliquiz.netlify.app/)
 
 ## Table of Contents
 
