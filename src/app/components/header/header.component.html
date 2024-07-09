@@ -2,12 +2,10 @@
   @if (Object.keys(quizzes.getCurrentQuiz()()).length) {
     <div class="flex gap-4 items-center font-black text-xl">
       <div class="bg-[#F6E7FF] p-3 flex items-center justify-center rounded-lg">
-      <span class="material-symbols-outlined text-primary">
-        accessibility_new
-      </span>
+        <img [src]="quizzes.getCurrentQuiz()().icon" alt="icon"/>
       </div>
       <span class="text-secondary dark:text-lightGray">
-      Accessibility
+       {{quizzes.getCurrentQuiz()().title}}
     </span>
     </div>
   }

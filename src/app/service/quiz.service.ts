@@ -10,15 +10,18 @@ export class QuizService {
   quizzes: Quizzes = data.quizzes
   currentQuiz = signal({} as Quiz);
 
-  correctAnswers:number = 0
+  correctAnswers = signal(0)
   correctAnswer:number = 0;
   currentStep = signal(0);
+
+  isQuizFinished = signal(false)
 
   getAllQuiz(): Quizzes {
     return this.quizzes;
   }
 
   setCurrentQuiz(index: number): void {
+    console.log('setting current quiz')
     this.currentQuiz.set(this.quizzes[index]);
   }
 
@@ -39,8 +42,23 @@ export class QuizService {
     this.currentStep.set(this.currentStep() + 1);
   }
 
-  getScore(): number {
+  setScore(score: number): void {
+    this.correctAnswers.set(score);
+  }
+
+  getScore(): WritableSignal<number>  {
     return this.correctAnswers;
   }
 
+  getQuizFinished(): WritableSignal<Boolean> {
+    return this.isQuizFinished;
+  }
+
+  setQuizFinished(status: boolean): void {
+    this.isQuizFinished.set(status);
+  }
+
+  resetCurrentQuiz(): void {
+    this.currentQuiz.set({} as Quiz)
+  }
 }

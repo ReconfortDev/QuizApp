@@ -5,7 +5,21 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: theme => ({
+        'lg-light-pattern': "url('/assets/images/pattern-background-desktop-light.svg')",
+        'lg-dark-pattern': "url('/assets/images/pattern-background-desktop-dark.svg')",
+        'md-light-pattern': "url('/assets/images/pattern-background-tablet-light.svg')",
+        'md-dark-pattern': "url('/assets/images/pattern-background-tablet-dark.svg')",
+        'sm-light-pattern': "url('/assets/images/pattern-background-mobile-light.svg')",
+        'sm-dark-pattern': "url('/assets/images/pattern-background-mobile-dark.svg')",
+      }),
+    },
+    variants: {
+      extend: {
+        backgroundImage: ['dark'],
+      },
+    },
     colors: {
       transparent: 'transparent',
       primary: '#A729F5', // RGB: 167, 41, 245; HSL: 277°, 91%, 56%

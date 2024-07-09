@@ -1,12 +1,13 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {NgClass} from "@angular/common";
+import {NgClass, NgOptimizedImage} from "@angular/common";
 import {QuizService} from "../../service/quiz.service";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
+    NgOptimizedImage
   ],
   templateUrl: './header.component.html',
   styles: []

@@ -10,25 +10,27 @@
 
   <!--  right content will be place here-->
 
-  <div class="h-[50vh] w-full bg-white dark:bg-secondary">
-    <div class="flex gap-4 items-center font-black text-xl">
-      <div class="bg-[#F6E7FF] p-3 flex items-center justify-center rounded-lg">
+  <div class="w-full flex justify-center items-center flex-col p-4 lg:p-12 gap-6">
+    <div class="w-full h-[50vh] bg-white dark:bg-secondary flex justify-center items-center flex-col rounded-2xl">
+      <div class="flex gap-4 items-center font-black text-xl">
+        <div class="bg-[#F6E7FF] p-3 flex items-center justify-center rounded-lg">
       <span class="material-symbols-outlined text-primary">
         accessibility_new
       </span>
-      </div>
-      <span class="text-secondary dark:text-lightGray">
+        </div>
+        <span class="text-secondary dark:text-lightGray">
       Accessibility
     </span>
+      </div>
+      <h1 class="text-7xl">{{ score() }}</h1>
+      <p>Out of 10</p>
     </div>
-    <h1 class="text-7xl">80</h1>
-    <p>Out of 10</p>
+    <button
+      (click)="playAgain()"
+      class="p-5 rounded-xl bg-primary w-full text-center gap-6 text-white">
+      Play again
+    </button>
   </div>
-
-  <button (click)="playAgain()"
-          class="p-5 rounded-xl bg-primary w-full text-center gap-6 text-white">
-    Play again
-  </button>
 
 
 </div>

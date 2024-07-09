@@ -22,6 +22,9 @@ export class ContentComponent {
 
   allQuizzes = this.quizzes.getAllQuiz()
 
+  constructor() {
+  }
+
 
   ChooseQuiz(index: number): void {
     this.quizzes.setCurrentQuiz(index);

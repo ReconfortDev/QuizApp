@@ -1,8 +1,7 @@
-import {Component, inject} from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, inject, signal, WritableSignal} from '@angular/core';
 import { NgIf } from "@angular/common";
-import { OptionsComponent } from '../options/options.component';
 import {QuizService} from "../../service/quiz.service"; // Import OptionsComponent if it's in a different module
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-scores',
@@ -14,16 +13,15 @@ import {QuizService} from "../../service/quiz.service"; // Import OptionsCompone
   styles: ``
 })
 export class ScoresComponent {
-  score: number = 0;
+  score: WritableSignal<number> = signal(0);
 
   quizzes = inject(QuizService);
 
-  constructor(private router: Router, private optionsComponent: OptionsComponent) {
+  constructor(private router: Router) {
     this.score = this.quizzes.getScore()
   }
 
   playAgain(): void {
-    // Reset quiz state and navigate back to the quiz start
-    this.router.navigateByUrl('/quiz');
+    window.location.reload()
   }
 }

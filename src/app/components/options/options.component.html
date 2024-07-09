@@ -10,7 +10,7 @@
       </h1>
     </div>
     <div class="w-[90%] bg-white dark:bg-secondary rounded-full p-1">
-      <div class="bg-primary rounded-full h-2 w-[10%]" [style.width]="ProgressBarTracker() + '%'"></div>
+      <div class="bg-primary rounded-full h-2" [style.width]="ProgressBarTracker() + '%'"></div>
     </div>
   </div>
 
@@ -21,19 +21,22 @@
           (click)="getAnswerId(id)"
           [class.selected]="selectedOption() === id"
           [ngClass]="{
-          'border-transparent': !answerSubmitted,
-          'border-[#FFA500]': answerSubmitted && selectedOption() === id && selectedOption() !== correctAnswer,
-          'border-[#26D782]': answerSubmitted && selectedOption() === id && selectedOption() === correctAnswer
-        }"
-          class="p-5 rounded-xl bg-white dark:bg-secondary w-full flex items-center gap-6 group border-2 border-transparent cursor-pointer hover:scale-[1.01] active:scale-[0.95]">
-      <span
-        [ngClass]="{
-          'bg-[#26D782] group-hover:bg-[#26D782] hover:bg-[#26D782] hover:text-secondary text-white': answerSubmitted && selectedOption() === id && selectedOption() === correctAnswer,
-          'bg-lightGray ': !answerSubmitted || (answerSubmitted && selectedOption() !== id)
-        }"
-        class="w-12 h-12 bg-lightGray rounded-lg text-secondary flex items-center justify-center group-hover:bg-[#F6E7FF]">
-        {{ ['A', 'B', 'C', 'D'][id] }}
-      </span>
+            'border-transparent': !answerSubmitted,
+            'border-2 border-[#FFA500]': answerSubmitted && selectedOption() === id && selectedOption() !== correctAnswer,
+            'border-2 border-[#21c274]': answerSubmitted && selectedOption() === id && selectedOption() === correctAnswer,
+            'border-2 border-[#26D782]': answerSubmitted && correctAnswer === id
+          }"
+          class="p-5 rounded-xl bg-white dark:bg-secondary w-full flex items-center gap-6 group duration-150 cursor-pointer hover:scale-[1.01] active:scale-[0.95]">
+        <span
+          [ngClass]="{
+            'border-transparent': !answerSubmitted,
+            'bg-[#FFA500] text-white border-none': answerSubmitted && selectedOption() === id && selectedOption() !== correctAnswer,
+            'bg-[#21c274] text-white border-none': answerSubmitted && selectedOption() === id && selectedOption() === correctAnswer,
+            'bg-[#26D782] text-white border-none': answerSubmitted && correctAnswer === id
+          }"
+          class="w-12 h-12 bg-lightGray rounded-lg text-secondary flex items-center justify-center group-hover:bg-[#F6E7FF]">
+          {{ ['A', 'B', 'C', 'D'][id] }}
+        </span>
         <p class="text-secondary text-xl dark:text-lightGray">{{ option }}</p>
       </li>
 
@@ -54,5 +57,4 @@
       </div>
     </ul>
   </div>
-
 </div>

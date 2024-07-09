@@ -1,7 +1,7 @@
 import { Component, WritableSignal, inject, signal } from '@angular/core';
-import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
-import { Question, Quiz, Quizzes } from "../../models/quiz";
-import { QuizService } from "../../service/quiz.service";
+import { NgClass, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
+import { Question, Quiz, Quizzes } from '../../models/quiz';
+import { QuizService } from '../../service/quiz.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,7 +26,6 @@ export class OptionsComponent {
   answerSubmitted: boolean = false;
   selectedOption: WritableSignal<number> = signal(-1);
   errorMsg: WritableSignal<boolean> = signal(false);
-
 
   constructor(private router: Router) {
     this.initializeQuiz();
@@ -80,12 +79,13 @@ export class OptionsComponent {
       this.submittedOption = false;
       this.selectedOption.set(-1);
       this.loadQuestion();
-      this.answerSubmitted = false
-    }
-    else {
-      this.router.navigateByUrl('/scores');
+      this.answerSubmitted = false;
+    } else {
+      console.log('reached else');
+      this.quizzes.setScore(this.totalCorrectAnswers);
+      this.quizzes.resetCurrentQuiz();
+      this.quizzes.setQuizFinished(true);
+      this.router.navigate(['/quiz-results']);
     }
   }
-
-
 }

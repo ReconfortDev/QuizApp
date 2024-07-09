@@ -8,11 +8,3 @@ export const routes: Routes = [
   { path: 'scores', component: ScoresComponent },
   { path: '**', redirectTo: '/quiz' }
 ];
-
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-
-export class AppRoutingModule { }

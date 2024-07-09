@@ -8,6 +8,17 @@
     transition: all ease-in-out 0.1s;
 }
 
-.correct {
-  border-color: green;
-}
+/*.lgLightBg {*/
+/*  background: url("../public/assets/images/pattern-background-desktop-light.svg");*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  border: 2px solid red;*/
+/*}*/
+
+/*.dark .lgDarkBg {*/
+/*    background: url("../public/assets/images/pattern-background-desktop-dark.svg");*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*}*/

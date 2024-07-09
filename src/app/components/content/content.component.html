@@ -3,15 +3,15 @@
 @if (Object.keys(quizzes.getCurrentQuiz()()).length) {
 <app-options />
 }
-<!--@else if () {-->
-<!--  <app-scores/>-->
-<!--} -->
+@else if (quizzes.getQuizFinished()()) {
+  <app-scores/>
+}
 @else {
   <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
 
     <!--  left content will be place here-->
     <div>
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal text-secondary dark:text-lightGray">Welcome to the <br>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-normal text-secondary dark:text-lightGray">Welcome to the <br>
         <span class="font-black">Frontend Quiz!</span>
       </h1>
       <p class="text-xl italic font-light mt-4 md:mt-8 text-secondary dark:text-lightBlue">Pick a subject to get
