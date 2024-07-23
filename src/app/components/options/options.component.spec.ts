@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+// import { Router } from '@angular/router';
 import { OptionsComponent } from './options.component';
+// import { QuizService } from '../../service/quiz.service';
 
 describe('OptionsComponent', () => {
   let component: OptionsComponent;
-  let fixture: ComponentFixture<OptionsComponent>;
+ let fixture: ComponentFixture<OptionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OptionsComponent]
+      imports: [OptionsComponent],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(OptionsComponent);
     component = fixture.componentInstance;
@@ -20,4 +21,7 @@ describe('OptionsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+
 });

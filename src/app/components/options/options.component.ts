@@ -31,7 +31,7 @@ export class OptionsComponent {
     this.initializeQuiz();
   }
 
-  private initializeQuiz(): void {
+  initializeQuiz(): void {
     this.currentQuiz = this.quizzes.getCurrentQuiz()();
     this.loadQuestion();
   }

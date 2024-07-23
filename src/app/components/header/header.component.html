@@ -1,5 +1,5 @@
 <div class="w-full flex justify-between items-center">
-  @if (Object.keys(quizzes.getCurrentQuiz()()).length) {
+  @if (Object.keys(quizzes.getCurrentQuiz()())) {
     <div class="flex gap-4 items-center font-black text-xl">
       <div class="bg-[#F6E7FF] p-2 md:p-3 flex items-center justify-center rounded-lg">
         <img [src]="quizzes.getCurrentQuiz()().icon" alt="icon"/>
